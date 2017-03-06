@@ -35,14 +35,14 @@ public class JPAUnitTestCase {
 	// Entities are auto-discovered, so just add them anywhere on class-path
 	// Add your tests, using standard JUnit.
 	@Test
-	public void hhh123Test() throws Exception {
+	public void hhh11549Test() throws Exception {
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		entityManager.getTransaction().begin();
 		Person p = new Person("123", UUID.randomUUID().toString(),new Date());
 
 		entityManager.persist(p);
 		entityManager.flush();
-		
+
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();
 		CriteriaQuery<PersonLookupDTO> query = builder.createQuery(PersonLookupDTO.class);
 		Root<Person> root = query.from(Person.class);
